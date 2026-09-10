@@ -26,6 +26,11 @@
             <uri>model://x500_base/meshes/NXP-HGD-CF.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.75 0.55 0.0 1</ambient>
+          <diffuse>1.0 0.78 0.0 1</diffuse>
+          <specular>0.35 0.30 0.10 1</specular>
+        </material>
       </visual>
       <visual name="5010_motor_base_0">
         <pose>0.174 0.174 .032 0 0 -.45</pose>
@@ -35,6 +40,11 @@
             <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.75 0.55 0.0 1</ambient>
+          <diffuse>1.0 0.78 0.0 1</diffuse>
+          <specular>0.35 0.30 0.10 1</specular>
+        </material>
       </visual>
       <visual name="5010_motor_base_1">
         <pose>-0.174 0.174 .032 0 0 -.45</pose>
@@ -44,6 +54,11 @@
             <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.75 0.55 0.0 1</ambient>
+          <diffuse>1.0 0.78 0.0 1</diffuse>
+          <specular>0.35 0.30 0.10 1</specular>
+        </material>
       </visual>
       <visual name="5010_motor_base_2">
         <pose>0.174 -0.174 .032 0 0 -.45</pose>
@@ -53,6 +68,11 @@
             <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.75 0.55 0.0 1</ambient>
+          <diffuse>1.0 0.78 0.0 1</diffuse>
+          <specular>0.35 0.30 0.10 1</specular>
+        </material>
       </visual>
       <visual name="5010_motor_base_3">
         <pose>-0.174 -0.174 .032 0 0 -.45</pose>
@@ -62,6 +82,11 @@
             <uri>model://x500_base/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.75 0.55 0.0 1</ambient>
+          <diffuse>1.0 0.78 0.0 1</diffuse>
+          <specular>0.35 0.30 0.10 1</specular>
+        </material>
       </visual>
       <visual name="NXP_FMUK66_FRONT">
         <pose>0.047 .001 .043 1 0 1.57</pose>
