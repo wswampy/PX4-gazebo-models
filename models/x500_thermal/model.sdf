@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.9'>
+  <!--
+    x500 with a downward-looking radiometric thermal camera matching the
+    FLIR Lepton 3.5 on the recon build: 160x120, ~57 deg HFOV, 8.7 Hz.
+
+    Output is 16-bit L16 where each pixel is temperature in DECIkelvin
+    (pixel / 10 = kelvin), matching the Lepton's radiometric TLinear output at
+    its 0.1 K resolution setting.
+
+    Not the default 0.01 K: 16 bits of centikelvin top out at 65535 / 100 =
+    655.35 K (382 C), so every fire hotter than that reads identically. At
+    0.1 K the ceiling is 6553 K and the real limit becomes the sensor's own
+    max_temp below. The physical Lepton needs the same 0.1 K setting.
+
+    Fixed mount, no gimbal: the camera tilts with the airframe, so frames must
+    be paired with the attitude at capture to be geolocated correctly.
+  -->
+  <model name='x500_thermal'>
+    <include merge='true'>
+      <uri>x500</uri>
+    </include>
+    <link name="thermal_link">
+      <pose relative_to="base_link">0.05 0 -0.05 0 0 0</pose>
+      <inertial>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <sensor name="thermal_cam" type="thermal_camera">
+        <!-- pitched 90 deg: looks straight down. Image "up" is the drone's nose. -->
+        <pose>0 0 0 0 1.5708 0</pose>
+        <always_on>1</always_on>
+        <update_rate>8.7</update_rate>
+        <topic>thermal</topic>
+        <camera>
+          <horizontal_fov>0.995</horizontal_fov>
+          <image>
+            <width>160</width>
+            <height>120</height>
+            <format>L16</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>1000</far>
+          </clip>
+        </camera>
+        <plugin filename="gz-sim-thermal-sensor-system" name="gz::sim::systems::ThermalSensor">
+          <!-- Lepton 3.5 low-gain mode reaches ~450 C -->
+          <min_temp>253.15</min_temp>
+          <max_temp>723.15</max_temp>
+          <resolution>0.1</resolution>
+        </plugin>
+      </sensor>
+    </link>
+    <joint name="thermal_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>thermal_link</child>
+    </joint>
+  </model>
+</sdf>

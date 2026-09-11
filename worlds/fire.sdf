@@ -1,0 +1,1392 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <world name="fire">
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <scene>
+      <grid>false</grid>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1 1</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>400 400</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>model://grass_ground/materials/textures/grass.png</albedo_map>
+                <metalness>0</metalness>
+                <roughness>1</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <light name="sunUTC" type="directional">
+      <pose>0 0 500 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78</direction>
+      <diffuse>0.904 0.904 0.904 1</diffuse>
+      <specular>0.271 0.271 0.271 1</specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+    <atmosphere type="adiabatic">
+      <temperature>298.15</temperature>
+    </atmosphere>
+    <model name="fire_cell_000">
+      <static>true</static>
+      <pose>66.25 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>663.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_001">
+      <static>true</static>
+      <pose>66.25 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>726.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_002">
+      <static>true</static>
+      <pose>66.25 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>725.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_003">
+      <static>true</static>
+      <pose>66.25 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>658.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_004">
+      <static>true</static>
+      <pose>68.75 38.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>687.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_005">
+      <static>true</static>
+      <pose>68.75 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>709.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_006">
+      <static>true</static>
+      <pose>68.75 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>715.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_007">
+      <static>true</static>
+      <pose>68.75 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>744.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_008">
+      <static>true</static>
+      <pose>68.75 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>698.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_009">
+      <static>true</static>
+      <pose>68.75 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>712.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_010">
+      <static>true</static>
+      <pose>68.75 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>723.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_011">
+      <static>true</static>
+      <pose>71.25 38.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>710.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_012">
+      <static>true</static>
+      <pose>71.25 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>361.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_013">
+      <static>true</static>
+      <pose>71.25 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>397.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_014">
+      <static>true</static>
+      <pose>71.25 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>382.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_015">
+      <static>true</static>
+      <pose>71.25 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>386.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_016">
+      <static>true</static>
+      <pose>71.25 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>341.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_017">
+      <static>true</static>
+      <pose>71.25 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>742.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_018">
+      <static>true</static>
+      <pose>71.25 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>663.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_019">
+      <static>true</static>
+      <pose>71.25 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>708.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_020">
+      <static>true</static>
+      <pose>73.75 36.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>652.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_021">
+      <static>true</static>
+      <pose>73.75 38.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>716.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_022">
+      <static>true</static>
+      <pose>73.75 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>391.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_023">
+      <static>true</static>
+      <pose>73.75 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>333.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_024">
+      <static>true</static>
+      <pose>73.75 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>346.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_025">
+      <static>true</static>
+      <pose>73.75 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>369.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_026">
+      <static>true</static>
+      <pose>73.75 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>342.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_027">
+      <static>true</static>
+      <pose>73.75 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>383.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_028">
+      <static>true</static>
+      <pose>73.75 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>354.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_029">
+      <static>true</static>
+      <pose>73.75 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>705.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_030">
+      <static>true</static>
+      <pose>76.25 36.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>715.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_031">
+      <static>true</static>
+      <pose>76.25 38.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>697.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_032">
+      <static>true</static>
+      <pose>76.25 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>369.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_033">
+      <static>true</static>
+      <pose>76.25 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>367.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_034">
+      <static>true</static>
+      <pose>76.25 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>378.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_035">
+      <static>true</static>
+      <pose>76.25 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>376.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_036">
+      <static>true</static>
+      <pose>76.25 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>342.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_037">
+      <static>true</static>
+      <pose>76.25 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>383.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_038">
+      <static>true</static>
+      <pose>76.25 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>377.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_039">
+      <static>true</static>
+      <pose>76.25 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>686.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_040">
+      <static>true</static>
+      <pose>76.25 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>707.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_041">
+      <static>true</static>
+      <pose>78.75 36.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>719.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_042">
+      <static>true</static>
+      <pose>78.75 38.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>672.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_043">
+      <static>true</static>
+      <pose>78.75 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>390.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_044">
+      <static>true</static>
+      <pose>78.75 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>385.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_045">
+      <static>true</static>
+      <pose>78.75 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>378.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_046">
+      <static>true</static>
+      <pose>78.75 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>393.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_047">
+      <static>true</static>
+      <pose>78.75 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>353.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_048">
+      <static>true</static>
+      <pose>78.75 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>347.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_049">
+      <static>true</static>
+      <pose>78.75 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>364.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_050">
+      <static>true</static>
+      <pose>78.75 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>704.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_051">
+      <static>true</static>
+      <pose>78.75 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>691.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_052">
+      <static>true</static>
+      <pose>81.25 38.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>682.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_053">
+      <static>true</static>
+      <pose>81.25 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>726.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_054">
+      <static>true</static>
+      <pose>81.25 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>342.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_055">
+      <static>true</static>
+      <pose>81.25 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>331.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_056">
+      <static>true</static>
+      <pose>81.25 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>385.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_057">
+      <static>true</static>
+      <pose>81.25 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>370.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_058">
+      <static>true</static>
+      <pose>81.25 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>375.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_059">
+      <static>true</static>
+      <pose>81.25 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>398.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_060">
+      <static>true</static>
+      <pose>81.25 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>706.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_061">
+      <static>true</static>
+      <pose>81.25 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>695.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_062">
+      <static>true</static>
+      <pose>83.75 41.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>704.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_063">
+      <static>true</static>
+      <pose>83.75 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>665.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_064">
+      <static>true</static>
+      <pose>83.75 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>389.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_065">
+      <static>true</static>
+      <pose>83.75 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>385.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_066">
+      <static>true</static>
+      <pose>83.75 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>380.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_067">
+      <static>true</static>
+      <pose>83.75 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>396.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_068">
+      <static>true</static>
+      <pose>83.75 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>348.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_069">
+      <static>true</static>
+      <pose>83.75 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>365.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_070">
+      <static>true</static>
+      <pose>83.75 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>700.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_071">
+      <static>true</static>
+      <pose>86.25 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>738.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_072">
+      <static>true</static>
+      <pose>86.25 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>386.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_073">
+      <static>true</static>
+      <pose>86.25 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>391.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_074">
+      <static>true</static>
+      <pose>86.25 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>353.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_075">
+      <static>true</static>
+      <pose>86.25 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>331.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_076">
+      <static>true</static>
+      <pose>86.25 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>383.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_077">
+      <static>true</static>
+      <pose>86.25 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>388.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_078">
+      <static>true</static>
+      <pose>86.25 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>655.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_079">
+      <static>true</static>
+      <pose>88.75 43.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>670.0</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_080">
+      <static>true</static>
+      <pose>88.75 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>718.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_081">
+      <static>true</static>
+      <pose>88.75 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>367.1</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_082">
+      <static>true</static>
+      <pose>88.75 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>335.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_083">
+      <static>true</static>
+      <pose>88.75 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>334.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_084">
+      <static>true</static>
+      <pose>88.75 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>339.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_085">
+      <static>true</static>
+      <pose>88.75 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>389.9</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_086">
+      <static>true</static>
+      <pose>88.75 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>650.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_087">
+      <static>true</static>
+      <pose>91.25 46.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>683.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_088">
+      <static>true</static>
+      <pose>91.25 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>681.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_089">
+      <static>true</static>
+      <pose>91.25 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>382.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_090">
+      <static>true</static>
+      <pose>91.25 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>0.08 0.07 0.06 1</ambient><diffuse>0.08 0.07 0.06 1</diffuse><emissive>0 0 0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>350.6</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_091">
+      <static>true</static>
+      <pose>91.25 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>653.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_092">
+      <static>true</static>
+      <pose>91.25 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>667.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_093">
+      <static>true</static>
+      <pose>91.25 61.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>720.2</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_094">
+      <static>true</static>
+      <pose>93.75 48.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>661.7</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_095">
+      <static>true</static>
+      <pose>93.75 51.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>748.5</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_096">
+      <static>true</static>
+      <pose>93.75 53.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>696.8</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_097">
+      <static>true</static>
+      <pose>93.75 56.25 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>717.4</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <model name="fire_cell_098">
+      <static>true</static>
+      <pose>93.75 58.75 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.1</size></box></geometry>
+          <material><ambient>1.0 0.35 0.0 1</ambient><diffuse>1.0 0.35 0.0 1</diffuse><emissive>0.9 0.25 0.0 1</emissive></material>
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>676.3</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.397971057728974</latitude_deg>
+      <longitude_deg> 8.546163739800146</longitude_deg>
+      <elevation>0</elevation>
+    </spherical_coordinates>
+  </world>
+</sdf>
